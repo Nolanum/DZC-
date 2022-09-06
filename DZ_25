@@ -1,0 +1,19 @@
+// Задача 29: Напишите программу, которая задаёт массив из N элементов и выводит их на экран.
+// 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
+// 6, 1, 33 -> [6, 1, 33]
+Console.Write("укажите колличество вводимых цифр: ");
+int number = Convert.ToInt32(Console.ReadLine());
+int[] array = new int[number];
+int number2 = 0;
+for (int i = 0; i < number; i++)
+    { 
+    number2 = i + 1;
+    Console.Write("Укажите число №" + number2 + ": ");
+    array[i] = Convert.ToInt32(Console.ReadLine());
+    }
+Console.Write("[ ");
+for (int i = 0; i < number-1; i++)
+{
+    Console.Write(array[i] + ", ");
+}
+Console.Write(array[number -1] + " ] ");
