@@ -7,6 +7,12 @@ for (int i = 0; i < ColElements; i++)
 {
     mass[i] = new Random().Next(100,999);
 }
+int result = 0;
+for (int i = 0; i < ColElements; i++)
+{
+    if (mass[i] % 2 == 0) result++;
+}
+
 // for (int i = 0; i < ColElements; i++)
 // {
 //Console.WriteLine(i + " -> " + mass[i]);
@@ -16,4 +22,4 @@ for (int i = 0; i < ColElements-1; i++)
 {
     Console.Write(mass[i] + ", ");
 }
-Console.Write(mass[ColElements -1] + " ] ");
+Console.Write(mass[ColElements -1] + " ] -> " + result + " ");
