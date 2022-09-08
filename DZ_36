@@ -1,0 +1,46 @@
+// Задача 36: Задайте одномерный массив, заполненный случайными числами. Найдите сумму элементов, стоящих на нечётных позициях.
+// [3, 7, 23, 12] -> 19
+// [-4, -6, 89, 6] -> 0
+
+// Console.WriteLine("Введите случайные числа: ");
+// string vvodstartstr = Convert.ToString(Console.ReadLine());
+// int dlina = vvodstartstr.Length;
+// if (vvodstartstr[dlina-1] == ' ') dlina = dlina - 1;
+// if (vvodstartstr[0] == ' ') Console.WriteLine("Ошибка, начать с пробела невозможно");
+// int nomerelementov = 0;
+// string[] massiv = new string[dlina];
+// for (int i = 0; i < dlina; i++)
+// {
+// if (vvodstartstr[i] != ' ') massiv[nomerelementov] = massiv[nomerelementov] + vvodstartstr[i];
+// else nomerelementov++;
+// }
+// int[] massivint = new int[nomerelementov+1];
+// for (int i = 0; i <= nomerelementov; i++)
+// {
+// massivint[i] = Convert.ToInt32(massiv[i]);
+// }
+// int summanechetnichh = 0;
+int ColElements = new Random().Next(2,10);
+int[] mass = new int [ColElements];
+for (int i = 0; i < ColElements; i++)
+{
+    mass[i] = new Random().Next(-999,999);
+}
+int result = 0;
+for (int i = 1; i < ColElements; i = i + 2)
+{
+    result += mass[i];
+}
+
+Console.Write("[ ");
+for (int i = 0; i < ColElements-1; i++)
+{
+    Console.Write(mass[i] + ", ");
+}
+Console.Write(mass[ColElements -1] + " ] -> " + result + " ");
+
+// for (int i = 0; i <= nomerelementov; i = i + 2)
+// {
+// summanechetnichh += massivint[i];
+// }
+// Console.WriteLine("Сумма нечетных эдементов массива: " + summanechetnichh);
