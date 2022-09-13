@@ -1,0 +1,35 @@
+// 43 Напишите программу, которая найдёт точку пересечения двух прямых, заданных уравнениями y = k1 * x + b1, y = k2 * x + b2; значения b1, k1, b2 и k2 задаются пользователем.
+// b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
+double[,] coef = new double[2, 2];
+for (int i = 1; i < 3; i++)
+    {
+        Console.Write("Введите коэффициент К для " + i + "-го уравнения y=kx+b:  ");
+        coef[i-1,0] = Convert.ToDouble(Console.ReadLine());
+        Console.Write("Введите коэффициент B для " + i + "-го уравнения y=kx+b:  ");
+        coef[i-1,1] = Convert.ToDouble(Console.ReadLine());
+    }
+int AbortProgram = 0;
+
+if (coef[0,0] == coef[1,0] && coef[0,1] == coef[1,1])
+    { 
+        Console.WriteLine("Ошибка: прямые не пересекаются, ибо идентичны!");
+        AbortProgram = 1;
+    }
+
+if (coef[0,0] == coef[1,0] && AbortProgram == 0)
+    {
+        Console.WriteLine("Ошибка: прямые не пересекаются, ибо параллельны!");
+        AbortProgram = 1;
+    }
+
+double Xresult = 0;
+double Yresult1 = 0;
+double Yresult2 = 0;
+if (AbortProgram == 0)
+    {
+        Xresult = (coef[1,1] - coef[0,1]) / (coef[0,0] - coef[1,0]);
+        Yresult1 = coef[0,0] * Xresult + coef[0,1]; 
+        Yresult2 = coef[1,0] * Xresult + coef[1,1]; 
+        if (Yresult1 != Yresult2) Console.WriteLine("Ошибка внутреннего расчёта: " + Yresult1 + " и " + Yresult2 + " не совпадают!");
+        Console.WriteLine("b1 = " + coef[0,1] + ", k1 = " + coef[0,0] + ", b2 = " + coef[1,1] + ", k2 = " + coef[1,0] + " ---> (" + Xresult + "; " + Yresult1 + ")" );
+    }
