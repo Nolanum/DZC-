@@ -24,13 +24,13 @@ for (int i = 0; i < Msize; i++ )
        } 
     Console.WriteLine();
     }
-for (int i = 0; i < Msize; i++) 
+for (int i = 0; i < Nsize; i++) 
+    {
+        double summ = 0.0;
+        // double srAr = 0.0;
+        for (int j = 0; j < Msize; j++)
             {
-                double summ = 0.0;
-                double srAr = 0.0;
-                for (int j = 0; j < Nsize; j++)
-                {
-                    summ += mass[j, i];
-                    Console.WriteLine($"Cреднее арифметическое элементов столбца {i + 1} = {(float)summ/Msize}");
-                }
-        }
+            summ += mass[j, i];
+            }
+            Console.WriteLine($"Cреднее арифметическое элементов столбца {i + 1} = {(float)summ/Msize}");
+    }   
