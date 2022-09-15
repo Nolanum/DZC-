@@ -34,18 +34,17 @@ Console.WriteLine("Введите число которые вы ищите: ");
 double Chislo = Convert.ToInt32(Console.ReadLine());
 double EstChislo = 0.0;
 for (int i = 0; i < Msize; i++ )
-   {
-     for (int j = 0; j < Nsize; j++ )
-     {
-      if(Chislo == Msize);
-      {(Chislo == Nsize);
-    
-           Console.Write("Координаты числа: " + (i+1,j+1));
+{
+    for (int j = 0; j < Nsize; j++ )
+    {
+        if(Chislo == mass[i,j])
+        {
+        Console.Write("Координаты числа: " + (i+1,j+1));
         EstChislo = 1;
         }
-       }
-    }   
-if (EstChislo = 0);
+    }
+}
+if (EstChislo == 0.0)
 {
-  Console.WriteLine("Данное число не найдено");
+Console.WriteLine("Данного числа нет в массиве");
 }
