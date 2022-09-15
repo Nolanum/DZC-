@@ -1,0 +1,36 @@
+// Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
+// Например, задан массив:
+// 1 4 7 2
+// 5 9 2 3
+// 8 4 2 4
+// Среднее арифметическое каждого столбца: 4,6; 5,6; 3,6; 3.
+
+int Msize = new Random().Next(1,4);
+int Nsize = new Random().Next(1,4);
+double[,] mass = new double[Msize, Nsize];
+for (int i = 0; i < Msize; i++ )
+    {
+       for (int j = 0; j < Nsize; j++ )
+       {
+            mass[i,j] = new Random().Next(1,10);
+       } 
+    }
+Console.WriteLine("Для задачи сгенерирован массив с размерностью M = " + Msize + ", N = " + Nsize);
+for (int i = 0; i < Msize; i++ )
+    {
+       for (int j = 0; j < Nsize; j++ )
+       {
+           Console.Write(" " + mass[i,j]);
+       } 
+    Console.WriteLine();
+    }
+for (int i = 0; i < Msize; i++) 
+            {
+                double summ = 0.0;
+                double srAr = 0.0;
+                for (int j = 0; j < Nsize; j++)
+                {
+                    summ += mass[j, i];
+                    Console.WriteLine($"Cреднее арифметическое элементов столбца {i + 1} = {(float)summ/Msize}");
+                }
+        }
