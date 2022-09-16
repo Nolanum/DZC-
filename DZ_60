@@ -1,0 +1,66 @@
+// Задача 60. ...Сформируйте трёхмерный массив из неповторяющихся двузначных чисел. 
+// Напишите программу, которая будет построчно выводить массив, добавляя индексы каждого элемента.
+// Массив размером 2 x 2 x 2
+// 66(0,0,0) 25(0,1,0)
+// 34(1,0,0) 41(1,1,0)
+// 27(0,0,1) 90(0,1,1)
+// 26(1,0,1) 55(1,1,1)
+
+int Msize = new Random().Next(2,4);
+int Nsize = new Random().Next(2,4);
+int Osize = new Random().Next(2,4);
+int[,,] mass = new int[Msize, Nsize, Osize];
+for (int i = 0; i < Msize; i++ )
+    {
+       for (int j = 0; j < Nsize; j++ )
+       {
+            for (int k = 0; k < Osize; k++ )
+            {
+            mass[i,j,k] = new Random().Next(-99,99);
+            } 
+       } 
+    }
+int Search = 0;
+int RestartSearch = 0;
+for (int i = 0; i < Msize; i++ )
+    {
+       for (int j = 0; j < Nsize; j++ )
+       {
+            for (int k = 0; k < Osize; k++ )
+            {
+            Search = mass[i,j,k];
+                for (int m = 0; m < Msize; m++ )
+                {
+                    for (int n = 0; n < Nsize; n++ )
+                    {
+                        for (int o = 0; o < Osize; o++ )
+                        {
+                            if (Search == mass[m,n,o] && m != i && n != j && o != k )
+                            {
+                                mass[m,n,o] = new Random().Next(-99,99);
+                                RestartSearch = 1;
+                                // Console.WriteLine("Заменен повтор числа " + m + n + o);
+                            }
+                        }
+                    }
+                }
+            } 
+        } 
+        if (RestartSearch == 1)
+        {
+            i = -1;
+            RestartSearch = 0;
+        }
+    }
+Console.WriteLine("Для задачи сгенерирован трехмерный массив с размерностью M = " + Msize + ", N = " + Nsize + ", O = " + Osize);
+for (int k = 0; k < Osize; k++ )
+    {
+       for (int i = 0; i < Msize; i++ )
+       {
+            for (int j = 0; j < Nsize; j++ )
+            {
+            Console.Write(" " + mass[i,j,k] + "(" + i + "," + j + "," + k +")");
+            } 
+            Console.WriteLine();
+       } 
+    }
