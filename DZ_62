@@ -1,0 +1,45 @@
+// Задача 62. Напишите программу, которая заполнит спирально массив 4 на 4. 
+// Например, на выходе получается вот такой массив:
+// 01 02 03 04
+// 12 13 14 05
+// 11 16 15 06
+// 10 09 08 07
+
+Console.WriteLine("Введите размерность квадратного массива: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int[,] mass = new int[size, size];
+int chislo = 1;
+if ((size % 2) == 1) mass[((size / 2)),((size / 2))] = size * size;
+for (int koltso = 0; koltso < (size / 2); koltso++ )
+    {
+       for (int i = koltso; i < (size - koltso); i++ )
+       {
+            mass[koltso,i] = chislo;
+            chislo += 1;
+       } 
+        for (int j = (1 + koltso); j < (size - koltso); j++ )
+       {
+            mass[j,((size-1) - koltso)] = chislo;
+            chislo += 1;
+       } 
+        for (int k = (1 + koltso); k < (size - koltso); k++ )
+       {
+            mass[(size - 1 - koltso),(size - 1 - k)] = chislo;
+            chislo += 1;
+       } 
+       for (int l = (1 + koltso); l < (size - koltso - 1); l++ )
+       {
+            mass[(size - 1 - l),koltso] = chislo;
+            chislo += 1;
+       } 
+    }
+
+for (int i = 0; i < size; i++ )
+    {
+       for (int j = 0; j < size; j++ )
+       {
+            if (mass[i,j] < 10) Console.Write(" ");
+           Console.Write(" " + mass[i,j]);
+       } 
+    Console.WriteLine();
+    }
