@@ -1,0 +1,26 @@
+// Задача 64: Задайте значения M и N. Напишите программу, которая выведет все натуральные числа в промежутке от M до N.
+// M = 1; N = 5. -> ""1, 2, 3, 4, 5""
+// M = 4; N = 8. -> ""4, 6, 7, 8""
+
+Console.WriteLine("Задайте последовательно значения M и N:");
+int Mnum = Convert.ToInt32(Console.ReadLine());
+int Nnum = Convert.ToInt32(Console.ReadLine());
+int MaxN = 0;
+int MinN = 0;
+if (Mnum <= Nnum) 
+    {
+        MinN = Mnum;
+        MaxN = Nnum;
+    }
+else
+    {
+        MinN = Nnum;
+        MaxN = Mnum;
+    }
+string Elka = Convert.ToString('"') + Convert.ToString('"');
+Console.Write(" M = " + Mnum + "; N = " + Nnum + " -> " + Elka + MinN);
+for (int i = MinN + 1; i <= MaxN; i++) 
+{
+Console.Write(", " + i);
+}
+Console.Write(Elka);
