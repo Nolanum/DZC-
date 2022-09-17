@@ -1,0 +1,15 @@
+// Задача 68: Напишите программу вычисления функции Аккермана с помощью рекурсии. 
+// Даны два неотрицательных числа m и n.
+// m = 2, n = 3 -> A(m,n) = 9
+
+Console.WriteLine("Задайте последовательно значения M и N:");
+int Mnum = Convert.ToInt32(Console.ReadLine());
+int Nnum = Convert.ToInt32(Console.ReadLine());
+int Ankerman(int Mn, int Nn)
+    {
+        int result = Nn + 1;
+        if (Mn > 0 && Nn == 0) result = Ankerman(Mn - 1,1);
+        if (Mn > 0 && Nn > 0) result = Ankerman(Mn - 1,Ankerman(Mn,Nn - 1));
+        return result;
+    }
+Console.Write(" m = " + Mnum + ", n = " + Nnum + " -> A (m,n) = " + Ankerman(Mnum, Nnum) + " ");
